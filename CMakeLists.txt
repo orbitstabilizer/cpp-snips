@@ -27,3 +27,14 @@ target_link_libraries(glaze-hello-world PRIVATE glaze::glaze)
 
 add_executable(cbind cbind.cpp)
 target_link_libraries(cbind PRIVATE glaze::glaze)
+
+add_library(plugin SHARED plugin.cpp)
+set_target_properties(plugin PROPERTIES PREFIX "" SUFFIX ".so")
+
+# Custom command to "touch" the file or move it to a 'live' location
+# This prevents the Host from loading a partially written file
+add_custom_command(TARGET plugin POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E echo "Plugin rebuild complete."
+)
+
+add_executable(plugin-example plugin-example.cpp)
