@@ -91,8 +91,8 @@ M.setup = function(opts)
 end
 
 M.setup({
-    auto_reload = true,
+    auto_reload = false,
     makeprg = "cmake -B build && cmake --build build -j8",
-    cur_program = "./build/hello-world",
+    cur_program = "",
 })
 

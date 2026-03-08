@@ -19,3 +19,7 @@ add_custom_target(copy_compile_commands ALL DEPENDS "${TARGET_CC}")
 
 set(CMAKE_CXX_STANDARD 23)
 add_executable(hello-world hello-world.cpp)
+
+add_subdirectory(external/glaze)
+add_executable(glaze-hello-world glaze-hello-world.cpp)
+target_link_libraries(glaze-hello-world PRIVATE glaze::glaze)
