@@ -172,7 +172,7 @@ int main() {
 
     namespace fs = std::filesystem;
 
-    std::string_view output_dir = "build/ffi";
+    std::string_view output_dir = "_ffi";
     fs::create_directories(output_dir);
     auto init_mod_path = std::format("{}/__init__.py", output_dir);
     if (!fs::exists(init_mod_path)) {

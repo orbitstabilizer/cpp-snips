@@ -1,8 +1,6 @@
 import numpy as np
 import mmap
-import sys
 
-sys.path.append('./build/')
 from ffi._PairInfo import PairInfo
 from ffi_utils import dtype_from_ctypes_type
 
